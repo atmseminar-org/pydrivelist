@@ -47,7 +47,7 @@ def main():
                    x['parents'][0]['id'], 
                    x['parents'][0]['isRoot'], 
                    x['mimeType']=='application/vnd.google-apps.folder') 
-                  for x in file_list]
+                  for x in file_list if 'parents' in x and x['parents']]
     folders = [x for x in all_files if x[4]]
     root_id = [f for f in folders if f[3]][0][2]
     tmp = {'title': '', 'id': root_id, 'isFolder': True, 'children': {}}
